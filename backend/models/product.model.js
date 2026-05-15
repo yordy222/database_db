@@ -1,0 +1,14 @@
+// Modelo Mongoose para la colección "products"
+import mongoose from 'mongoose';
+
+const productSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, trim: true },
+    category: { type: String, required: true, trim: true },
+    price: { type: Number, required: true, min: 0 },
+    stock: { type: Number, required: true, min: 0 }
+  },
+  { timestamps: true } // Agrega createdAt / updatedAt
+);
+
+export default mongoose.model('Product', productSchema);
